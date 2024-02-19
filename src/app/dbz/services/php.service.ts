@@ -22,6 +22,6 @@ export class ApiService {
 
   borrarPersonaje(id: number): Observable<any> {
     console.log('Eliminando personaje con id:', id);
-    return this.http.post(`${this.baseUrl}/borrar.php`, { id });
+    return this.http.delete(`${this.baseUrl}/borrar.php/${id}`);
   }
 }

@@ -4,10 +4,10 @@ header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 header('Content-Type: application/json'); // Establece la cabecera correcta para JSON
 
-define("HOSTNAME", "db");
-define("USERNAME", "root");
-define("PASSWORD", "dejame");
-define("DATABASE", "dbzDB"); // utf8_spanish2_ci
+define("HOSTNAME", "localhost");
+define("USERNAME", "id21568362_root");
+define("PASSWORD", "CPIFPdwec-123");
+define("DATABASE", "id21568362_dbzdb"); // utf8_spanish2_ci
 
 $conexion = mysqli_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE);
 
