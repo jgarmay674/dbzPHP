@@ -1,0 +1,48 @@
+version: '3'
+services:
+  # image for PHP (Apache 8.3) server
+  php-app:
+    build:
+      context: .
+      dockerfile: Dockerfilephp
+    volumes:
+      - ./php-app:/var/www/html
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+  
+  # image for Python (Flask 3.8) server
+  python-app:
+    build:
+      context: .
+      dockerfile: Dockerfilepython
+    volumes:
+      - ./python-app:/usr/src/app
+    ports:
+      - 8081:5000
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: dejame
+      MYSQL_DATABASE: dbzDB
+    volumes:
+      - db-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: dejame
+      PMA_ARBITRARY: 1
+    ports:
+      - 8084:80
+    depends_on:
+      - db
+
+volumes:
+  db-data:

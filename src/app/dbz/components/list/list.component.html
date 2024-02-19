@@ -1,0 +1,29 @@
+<h4>Listado de personajes</h4>
+<ul class="list-group">
+  <li *ngFor="let personaje of personajes;
+      let i = index;
+      let primero = first;
+      let ultimo = last;
+      let par = even;
+      let impar = odd;
+      "class="list-group-item"
+      [ngClass] = "{
+      'list-group-item-success': primero,
+      'list-group-item-primary': par,
+      'list-group-item-dark': ultimo
+      }">
+    <span class="text-primary">{{i+1}}. </span>
+    <strong>Name: </strong> <span>{{personaje.nombre}}</span> -
+    <strong>Power: </strong> <span>{{personaje.fuerza}}</span><br>
+    <input
+      class="btn btn-primary"
+      type="button"
+      value="Eliminar"
+      (click)="enviarId(personaje.id!)">&nbsp;
+    <input
+      class="btn btn-primary"
+      type="button"
+      value="Actualizar"
+      (click)="enviarPersonaje(personaje.id!, personaje)">
+  </li>
+</ul>
