@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl = 'https://cpifpdwec.000webhostapp.com/API'; // Asegúrate de cambiar esto por tu URL real
+  private baseUrl = 'http://54.82.124.177:8080'; // Asegúrate de cambiar esto por tu URL real
 
   constructor(private http: HttpClient) { }
 
